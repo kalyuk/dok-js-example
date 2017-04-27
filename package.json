@@ -1,0 +1,23 @@
+{
+  "name": "dok-js-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "babel-node bin/server.js",
+    "console": "babel-node bin/console.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalyuk/dok-js-example.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kalyuk/dok-js-example/issues"
+  },
+  "homepage": "https://github.com/kalyuk/dok-js-example#readme",
+  "dependencies": {
+    "dok-js": "^0.1.0"
+  }
+}

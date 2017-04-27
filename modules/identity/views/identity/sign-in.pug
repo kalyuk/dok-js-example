@@ -1,0 +1,43 @@
+mixin inputField(input)
+  .form-group
+    label.control-label=input.label
+    input.form-control.input-lg(
+    class=input.errors ? "parsley-error" : ""
+    type=input.type,
+    placeholder=input.placeholder
+    name=input.name
+    value=input.value
+    )
+    if(input.errors)
+      ul.parsley-error-list
+        if(input.errors)
+          li(class=input.errors[0].rule)=input.errors[0].message
+
+block body
+  section.panel.panel-default.bg-white.m-t-lg
+    header.panel-heading.text-center
+      strong Авторизация
+    form.panel-body.wrapper-lg(action="" method="post")
+      +inputField({
+        label: "Ваш email",
+        type: "text",
+        name: "email",
+        errors: signInForm && signInForm.$errors.email,
+        value: signInForm && signInForm.email,
+        placeholder: "username@shopmaek.ru"
+      })
+      +inputField({
+        label: "Ваш пароль",
+        type: "password",
+        name: "password",
+        errors: signInForm && signInForm.$errors.password,
+        value: signInForm && signInForm.password,
+        placeholder: "ваш сложный пароль"
+      })
+      .checkbox
+        label
+          input(type="checkbox" name="rememberMe" checked value="true")
+          |  не выходить из системы
+      a.pull-right.m-t-xs(href='#')
+        small Забыл пароль ?
+      button.btn.btn-primary(type='submit') Войти
