@@ -42,6 +42,11 @@ export default function () {
                 controller: "identity",
                 action: "index"
               },
+              "/logout": {
+                module: "identity",
+                controller: "identity",
+                action: "logout"
+              },
               "GET /assets/<filePath:.*>": {
                 module: "static",
                 controller: "static",
@@ -58,9 +63,6 @@ export default function () {
       modules: {
         identity: {
           path: path.join(__dirname, "..", "modules", "identity", "IdentityModule")
-        },
-        static: {
-          path: path.join(__dirname, "..", "modules", "static", "StaticModule")
         },
         dashboard: {
           path: path.join(__dirname, "..", "modules", "dashboard", "DashboardModule")

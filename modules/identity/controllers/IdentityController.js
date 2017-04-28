@@ -13,17 +13,19 @@ export default class IdentityController extends Controller {
     if (ctx.method === "POST") {
       const signInForm = new SignInForm();
       signInForm.load(ctx.body);
-      const $user = await signInForm.login();
+      const $user = await signInForm.login(ctx);
       if ($user) {
-        const Session = App().getService("Session");
-        return this.redirectTo("/", 301, {
-          "Set-Cookie": [Session.getSessionCookie($user)]
-        });
+        return this.redirectTo("/", 301);
       }
       data.signInForm = signInForm;
     }
 
     return this.render("sign-in", data);
+  }
+
+  logoutAction(ctx) {
+    ctx.session.clearSession();
+    return this.redirectTo("/", 302);
   }
 
 }

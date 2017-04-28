@@ -15,12 +15,15 @@ export default class SignInForm extends DataModel {
     ];
   }
 
-  async login() {
+  async login(ctx) {
     await this.validate();
 
     if (!this.hasErrors()) {
       const user = await UserModel.findOne({where: {email: this.email}});
       if (user && App().getService("Security").hashVerify(this.password, user.passwordHash)) {
+        ctx.session.set("user", user);
+        const roles = await user.getRoleList();
+        ctx.session.set("roles", roles);
         return user;
       }
 
