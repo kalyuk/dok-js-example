@@ -1,6 +1,5 @@
 import Controller from "dok-js/dist/web/Controller";
 import SignInForm from "../data-models/SignInForm";
-import App from "dok-js";
 
 export default class IdentityController extends Controller {
 

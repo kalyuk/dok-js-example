@@ -24,11 +24,6 @@ export default function () {
             port: 1987
           }
         },
-        Session: {
-          options: {
-            modelPath: path.join(__dirname, "..", "modules", "identity", "models", "UserModel")
-          }
-        },
         Router: {
           options: {
             routes: {
