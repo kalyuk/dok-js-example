@@ -50,7 +50,7 @@ export default function () {
                   viewPath: path.join(__dirname, "..", "views", "assets")
                 }
               },
-              "/<module:\w+>/<controller:\w+>/<action:\w+>": {}
+              "/<module:\\w+>/<controller:\\w+>/<action:\\w+>": {}
             }
           }
         }
